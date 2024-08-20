@@ -33,8 +33,9 @@ class ValidateLogEndpointAvailability(TestScenario):
         self.begin_test_step("Attempt to fetch logs by endpoint")
 
         try:
-            resp = self.logging_provider.get_log()
-            if(resp.content):
+            resp = self.logging_provider.get_log().content
+           
+            if(resp):
                 with self.check(
                 "GET /log is working as expected",
                 ) as check:

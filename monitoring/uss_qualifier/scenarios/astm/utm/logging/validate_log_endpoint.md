@@ -6,16 +6,16 @@ ASTM F3548-21 LOG0035 requires that the USS's be capable of exporting logged dat
 
 ## Resources
 
-### test_env_version_providers
+### logging_provider
 
 A [`LoggingProvidersResource`](../../../../resources/logging/client.py) containing the means by which to fetch logs for applicable participant.
 
 ## Validate log endpoint availability test case
 
-### Get log endpoint test step
+### Attempt to fetch logs by endpoint test step
 
 USS provider is requested log for specified timeline in the test environment API.
 
-#### ⚠️ Valid response check
+#### ⚠️ GET /log is working as expected check
 
-If a valid response is not received from provider, they will have failed to meet **[logging.ValidateLogEndpointAvailability](../../../../requirements/logging.md)**.
+If a valid response from GET /log endpoint is not sent by provider, they will have failed to meet **[logging.ValidateLogEndpointAvailability](../../../../requirements/logging.md)**.
