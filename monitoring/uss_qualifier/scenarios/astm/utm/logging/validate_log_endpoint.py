@@ -46,7 +46,7 @@ class ValidateLogEndpointAvailability(TestScenario):
             ) as check:
                 check.record_failed(
                     summary="GET /log is not working as expected - endpoint is unreacheble",
-                    details="indicated version '{test_env_versions[participant_id].version}' in the test environment and version '{prod_env_versions[participant_id].version}' in the production environment.",
+                    details="Endpoint /log is not returning what is expected. Check the documentation (validate_log_endpoint.md) for more details.",
                     query_timestamps="",
                 )
             self.end_test_step()
