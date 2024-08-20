@@ -18,7 +18,7 @@ v1:
             logger_config: resources.logging.LoggingProvidersResource
           actions:
           - test_scenario:
-              scenario_type: scenarios.astm.utm.ValidateLogEndpointAvailability
+              scenario_type: scenarios.astm.utm.logging.ValidateLogEndpointAvailability
               resources:
                 logger_config: logger_config
             on_failure: Abort
