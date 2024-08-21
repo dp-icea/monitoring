@@ -1,0 +1,42 @@
+$content_schema: monitoring/uss_qualifier/configurations/configuration/USSQualifierConfiguration.json
+v1:
+  test_run:
+    resources:
+      resource_declarations:
+        logging_provider:
+          resource_type: resources.logging.LoggingProvidersResource
+          specification:
+            instance: 
+              interuss:
+                  base_url: http://172.17.0.1:9091/uss/v1/
+
+    action:
+      test_suite:
+        suite_definition:
+          name: Logger
+          resources:
+            logging_provider: resources.logging.LoggingProvidersResource
+          actions:
+          - test_scenario:
+              scenario_type: scenarios.astm.utm.logging.ValidateLogEndpointAvailability
+              resources:
+                logging_provider: logging_provider
+            on_failure: Abort
+        resources:
+          logging_provider: logging_provider
+   
+    execution:
+      stop_fast: true
+  artifacts:
+    raw_report:
+      indent: 2
+    sequence_view: {}
+    report_html: {}
+  validation:
+    criteria:
+      - $ref: ./library/validation.yaml#/execution_error_none
+      - applicability:
+          skipped_actions: {}
+        pass_condition:
+          each_element:
+            has_execution_error: false
